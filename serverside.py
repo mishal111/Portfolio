@@ -18,9 +18,9 @@ def broadcast(message):
 
 def receive_data(client):
     file_name=client.recv(1024).decode()
-    print(file_name)
+    print(f"{file_name} is received")
     file_size=client.recv(1024).decode()
-    print(file_size)
+    print(f"Size of {file_name} is {file_size}")
     full=False
     while not full:
         if file_name!="":
@@ -34,7 +34,7 @@ def receive_data(client):
 
     done =False
     while not done:
-        data=server.recv(1024).decode()
+        data=client.recv(1024).decode()
         if file_bytes[-5:]==b"<ROB>":
             done=True
         else:
