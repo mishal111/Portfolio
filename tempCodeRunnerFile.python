@@ -1,0 +1,5 @@
+import os
+
+with open("Sams Teach Yourself C in 21 Days.pdf",'rb') as file:
+    file_size=os.path.getsize("Sams Teach Yourself C in 21 Days.pdf")
+    print(file_size)

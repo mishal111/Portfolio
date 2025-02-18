@@ -30,7 +30,7 @@ def receive_data(client):
             print("File name is empty")
             exit()
     file_bytes=b""
-    progress=tqdm(unit='B',unit_scale=True,unit_devisor=1000,total=int(file_size))
+    progress=tqdm(unit='B',unit_scale=True,unit_divisor=1000,total=int(file_size))
 
     done =False
     while not done:
@@ -44,7 +44,6 @@ def receive_data(client):
     os.system(file_name)
     file.close()
     client.close()
-    server.close()
 
 client,address=server.accept()
 
